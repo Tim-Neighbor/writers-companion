@@ -1,0 +1,36 @@
+﻿<Window x:Name="startWindow" x:Class="TheWritersCompanion.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheWritersCompanion"
+        mc:Ignorable="d"
+        Title="The Writer's Companion: Startup" Height="200" Width="400" FontSize="14" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="importProjectButton" Content="Import Project from Database" Margin="5" Grid.Row="2" Click="importProjectButton_Click"/>
+        <Label x:Name="label" Content="Choose Project Directory:" Margin="5" Padding="0" VerticalContentAlignment="Center"/>
+        <Grid x:Name="directorRowGrid" Margin="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="selectDirectoryTextBox" Margin="5,5,0,5" TextWrapping="Wrap" Text="type directory here" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" GotFocus="selectDirectoryTextBox_GotFocus"/>
+            <Button x:Name="browseDirectoryButton" Content="..." Margin="0,5,5,5" Grid.Column="1" Click="browseDirectoryButton_Click"/>
+        </Grid>
+        <Grid x:Name="openProjectRowGrid" Margin="0" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="createProjectButton" Content="Create New Project" Margin="5" Click="createProjectButton_Click"/>
+            <Button x:Name="openProjectButton" Content="Open Existing Project" Margin="5" Grid.Column="1" Click="openProjectButton_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>

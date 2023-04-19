@@ -1,0 +1,72 @@
+﻿<Window x:Name="mainWindow" x:Class="TheWritersCompanion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheWritersCompanion" xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        mc:Ignorable="d"
+        Title="The Writer's Companion" Height="650" Width="260" FontSize="14" Closed="mainWindow_Closed" IsTabStop="False">
+    <Grid x:Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition MinHeight="23"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="categoryRowGrid" Margin="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="newCategoryButton" Content="New Category" Margin="5,5,2.5,5" Padding="0" Click="newCategoryButton_Click" TabIndex="1"/>
+            <Button x:Name="deleteCategoryButton" Content="Delete Category" RenderTransformOrigin="0.423,0.65" Margin="2.5,5,5,5" Grid.Column="1" Padding="0" Click="deleteCategoryButton_Click" TabIndex="2"/>
+        </Grid>
+        <Grid x:Name="noteRowGrid" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="newNoteButton" Content="New Note" Margin="5,5,2.5,5" Padding="0" Click="newNoteButton_Click" TabIndex="4"/>
+            <Button x:Name="deleteNoteButton" Content="Delete Note" Margin="2.5,5,5,5" Grid.Column="1" Padding="0" Click="deleteNoteButton_Click" TabIndex="5"/>
+        </Grid>
+        <Grid x:Name="formatRowGrid" Grid.Row="4" Margin="5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="12"/>
+            </Grid.ColumnDefinitions>
+            <ToggleButton x:Name="boldToggleButton" Content="B" Margin="0,5" RenderTransformOrigin="0.475,-2.55" FontWeight="Bold" Padding="0" Click="boldToggleButton_Click" Focusable="False" TabIndex="6"/>
+            <ToggleButton x:Name="italicsToggleButton" Content="I" Margin="0,5" RenderTransformOrigin="0.252,0.212" Grid.Column="1" FontStyle="Italic" Padding="0" Click="italicsToggleButton_Click" Focusable="False" TabIndex="7"/>
+            <Button x:Name="fontButton" Content="Font" Margin="0,5" RenderTransformOrigin="0.252,0.212" Grid.Column="2" Padding="0" Focusable="False" Click="fontButton_Click" TabIndex="8"/>
+            <ToggleButton x:Name="bulletToggleButton" Content="Bullet" Margin="0,5" Grid.Column="3" Padding="0" Focusable="False" Click="bulletToggleButton_Click" TabIndex="9"/>
+            <Label x:Name="label" Content="Zoom:" Margin="0,5" Grid.Column="4" Background="{x:Null}" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="zoomTextBox" Margin="0,5" TextWrapping="Wrap" Text="100" Grid.Column="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" LostKeyboardFocus="zoomTextBox_LostKeyboardFocus" GotKeyboardFocus="zoomTextBox_GotKeyboardFocus" TabIndex="10"/>
+            <Label x:Name="label1" Content="%" Margin="0,5" Grid.Column="6" Background="{x:Null}" Padding="0" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="saveRowGrid" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.75*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="saveButton" Content="Save" Margin="5" Padding="0" Click="saveButton_Click" TabIndex="11"/>
+            <Label x:Name="saveStatusLabel" Content="" Grid.Column="1" Margin="5" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="syncButton" Content="Sync" Grid.Column="2" Margin="5" Click="syncButton_Click" TabIndex="12"/>
+        </Grid>
+        <ComboBox x:Name="categoryComboBox" Margin="5" SelectionChanged="categoryComboBox_SelectionChanged" TabIndex="0"/>
+        <ComboBox x:Name="noteComboBox" Margin="5" Grid.Row="2" SelectionChanged="noteComboBox_SelectionChanged" TabIndex="3"/>
+        <WindowsFormsHost x:Name="textBoxWindowsFormHost" Grid.Row="5">
+            <wf:RichTextBox x:Name="noteRichTextBox" AcceptsTab="True" Margin="5, 5, 5, 5" Enabled="False" TextChanged="noteRichTextBox_TextChanged" SelectionChanged="noteRichTextBox_SelectionChanged" EnabledChanged="noteRichTextBox_EnabledChanged" KeyDown="noteRichTextBox_KeyDown" TabIndex="13"/>
+        </WindowsFormsHost>
+    </Grid>
+</Window>
